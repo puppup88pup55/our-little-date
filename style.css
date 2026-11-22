@@ -1716,3 +1716,23 @@ h1 em {
 #musicButton:hover {
   transform: scale(1.12);
 }
+
+/* 💜 Romantic Music Player */
+
+#spotifyPlayer {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  z-index: 9999;
+  width: min(320px, calc(100vw - 30px));
+  height: 80px;
+}
+
+#spotifyPlayer.shown {
+  display: block;
+}
+
+#spotifyPlayer iframe {
+  border-radius: 14px;
+}
