@@ -614,9 +614,7 @@ yesButton.addEventListener('click', () => {
   bgMusic.play().catch(console.error);
 });
 
-    // ถ้าเบราว์เซอร์บล็อก ให้กดปุ่มเพลงเอง
-  });
-});
+
 
 // เปิด / ปิดเพลง
 musicButton.addEventListener('click', () => {
