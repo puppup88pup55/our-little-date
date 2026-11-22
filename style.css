@@ -1,0 +1,1690 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=Mali:wght@400;500;600&display=swap');
+
+
+:root {
+  --ink: #312040;
+  --purple: #694aa3;
+  --light: #f9f3ff;
+  --pink: #f8c6e6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* พื้นหลังสีม่วง */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 34px 18px;
+
+  background:
+    radial-gradient(
+      circle at 11% 10%,
+      #8461b8 0,
+      transparent 33%
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      #9864bf 0,
+      transparent 34%
+    ),
+    #2b193c;
+
+  color: var(--ink);
+  font-family: 'Mali', sans-serif;
+}
+
+/* กล่องหลัก */
+.invite {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.06fr .94fr;
+
+  width: min(100%, 1020px);
+  min-height: 590px;
+
+  border: 1px solid #ffffff80;
+  border-radius: 32px;
+  background: #faf6ff;
+
+  box-shadow: 0 28px 90px #140c2560;
+}
+
+.invite::before {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  left: -95px;
+  bottom: -100px;
+  border: 25px solid #e0c9f5;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* พื้นที่ข้อความ จัดตรงกลาง */
+.words {
+  padding: 48px 30px 45px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* ชื่อคลับด้านบน */
+.brand {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #764da0;
+  text-transform: uppercase;
+}
+
+.brand .star {
+  color: #cc79ae;
+  font-size: 20px;
+  vertical-align: -2px;
+  margin-right: 5px;
+}
+
+/* ข้อความเกริ่น */
+.eyebrow {
+  margin: 74px 0 16px;
+  color: #9575ac;
+
+  font: 700 11px 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+/* ฟอนต์หัวข้อเดิม */
+
+h1 {
+  margin: 0;
+  max-width: 480px;
+
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(42px, 5.4vw, 72px);
+  letter-spacing: -1.5px;
+  line-height: 1.12;
+  font-weight: 400;
+  text-align: center;
+}
+
+h1 em {
+  color: #aa72c0;
+  font-weight: 400;
+}
+
+
+/* ข้อความภาษาไทย */
+.detail {
+  margin: 25px 0 32px;
+  font-size: 14px;
+  line-height: 1.95;
+  color: #6d5c78;
+  text-align: center;
+}
+
+/* พื้นที่ปุ่ม */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+
+  font: 600 13px 'Mali', sans-serif;
+  transition: transform .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ปุ่ม YES */
+.btn.yes {
+  background: #362148;
+  color: white;
+  box-shadow: 0 6px 0 #e8d8f2;
+}
+
+.btn.yes span {
+  margin-left: 20px;
+  font-size: 17px;
+}
+
+/* ปุ่มขอคิดก่อน */
+.btn.no {
+  background: #efdef7;
+  color: #66437a;
+}
+
+/* ข้อความล่างสุด */
+.note {
+  margin-top: auto;
+  padding-top: 40px;
+  color: #a592af;
+  font: 500 11px 'DM Sans', sans-serif;
+  letter-spacing: .5px;
+  text-align: center;
+}
+
+/* พื้นที่ภาพดอกไม้ */
+.art-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 45% 43%,
+      #f8e6fa 0 28%,
+      transparent 29%
+    ),
+    repeating-radial-gradient(
+      circle at 30% 30%,
+      transparent 0 18px,
+      #d8bbe622 19px 20px
+    ),
+    #ebdcf5;
+
+  border-radius: 42% 0 0 42%;
+  margin: 15px 0 15px 8px;
+}
+
+.art-area::before {
+  content: '';
+  position: absolute;
+  inset: 25px 20px;
+  border: 1.5px dashed #c4a2d2;
+  border-radius: 45% 0 0 45%;
+  pointer-events: none;
+}
+
+/* ขนาดภาพดอกไม้ */
+.flower-art {
+  width: min(100%, 450px);
+  height: auto;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 9px 2px #613f7611);
+}
+
+/* หัวใจตกแต่ง */
+.floating-heart {
+  position: absolute;
+  top: 47px;
+  right: 37px;
+  font-size: 28px;
+  color: #b573ad;
+  transform: rotate(17deg);
+}
+
+/* สติกเกอร์ YOU + ME */
+.seal {
+  position: absolute;
+  z-index: 2;
+  top: 35px;
+  left: 30px;
+
+  display: grid;
+  place-items: center;
+
+  width: 77px;
+  height: 77px;
+
+  background: #342044;
+  border: 4px solid #f8edfa;
+  border-radius: 50%;
+
+  transform: rotate(-14deg);
+  color: #fff4ff;
+  text-align: center;
+
+  font: 700 10px/1.3 'DM Sans', sans-serif;
+  letter-spacing: .5px;
+}
+
+/* ป้ายชื่อดอกไม้ */
+.flower-label {
+  position: absolute;
+  z-index: 2;
+  bottom: 35px;
+  right: 24px;
+
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #fffaf9;
+
+  box-shadow: 0 7px 20px #63457922;
+  transform: rotate(-4deg);
+
+  color: #6c5086;
+  font: 600 12px 'Mali', sans-serif;
+}
+
+/* รองรับหน้าจอมือถือ */
+@media (max-width: 720px) {
+
+  body {
+    padding: 13px;
+  }
+
+  .invite {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .words {
+    padding: 32px 22px 20px;
+  }
+
+  .eyebrow {
+    margin-top: 32px;
+  }
+
+  h1 {
+    font-size: clamp(42px, 11vw, 62px);
+  }
+
+  .detail {
+    margin: 18px 0 24px;
+  }
+
+  .note {
+    display: none;
+  }
+
+  .art-area {
+    min-height: 380px;
+    margin: 12px 15px 15px;
+    border-radius: 26px;
+  }
+
+  .art-area::before {
+    border-radius: 22px;
+  }
+
+  .flower-art {
+    width: min(100%, 345px);
+  }
+
+  .seal {
+    top: 15px;
+    left: 14px;
+    transform: rotate(-10deg) scale(.82);
+  }
+
+  .flower-label {
+    bottom: 16px;
+    right: 10px;
+    font-size: 10px;
+  }
+}
+
+
+/* 💜 ปุ่ม No ขยับเล็กน้อย อยู่ที่เดิม */
+
+.btn.no {
+  position: static !important;
+
+  left: auto !important;
+  top: auto !important;
+
+  --dx: 0px;
+  --dy: 0px;
+
+  transform: translate(
+    var(--dx),
+    var(--dy)
+  ) !important;
+
+  transition: transform 0.2s ease !important;
+}
+
+.btn.no:hover {
+  transform: translate(
+    var(--dx),
+    var(--dy)
+  ) !important;
+}
+
+
+/* 💜 ปุ่ม YES ขยายใหญ่ขึ้นเรื่อย ๆ */
+.btn.yes {
+  --yes-scale: 1;
+  position: relative;
+  z-index: 5;
+
+  transform: scale(var(--yes-scale)) !important;
+  transform-origin: center;
+
+  transition: transform 0.3s ease !important;
+}
+
+/* 🌷 ปุ่ม No เล็กลงและขยับหลบ */
+.btn.no {
+  --no-scale: 1;
+  --move-x: 0px;
+  --move-y: 0px;
+
+  position: relative !important;
+  z-index: 6;
+
+  left: auto !important;
+  top: auto !important;
+
+  transform:
+    translate(var(--move-x), var(--move-y))
+    scale(var(--no-scale)) !important;
+
+  transform-origin: center;
+
+  transition: transform 0.3s ease !important;
+}
+
+/* 💜 เมื่อกด No ครบ 7 ครั้ง */
+.btn.yes.full-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw;
+  height: 100dvh;
+
+  z-index: 9999;
+
+  border-radius: 0;
+  box-shadow: none;
+
+  transform: none !important;
+
+  font-size: clamp(28px, 7vw, 64px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* 💜 ปุ่ม YES ค่อย ๆ ขยาย */
+.btn.yes {
+  --yes-scale: 1;
+
+  position: relative;
+  z-index: 5;
+
+  transform: scale(var(--yes-scale)) !important;
+  transform-origin: center;
+
+  transition: transform 0.3s ease !important;
+}
+
+/* 🫣 ปุ่ม No หลบ + เล็กลง */
+.btn.no {
+  --no-scale: 1;
+  --move-x: 0px;
+  --move-y: 0px;
+
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 6;
+
+  transform:
+    translate(var(--move-x), var(--move-y))
+    scale(var(--no-scale)) !important;
+
+  transform-origin: center;
+
+  transition: transform 0.25s ease !important;
+}
+
+.btn.no:hover {
+  transform:
+    translate(var(--move-x), var(--move-y))
+    scale(var(--no-scale)) !important;
+}
+
+/* 💜 กด No ครบ 5 ครั้ง → YES เต็มจอ */
+.btn.yes.full-screen {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+
+  margin: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0;
+  box-shadow: none;
+
+  transform: none !important;
+
+  font-size: clamp(26px, 6vw, 60px);
+}
+
+/* ==========================
+   PAGE 2 : PURPLE CALENDAR
+========================== */
+
+.is-hidden {
+  display: none !important;
+}
+
+.date-page {
+  width: min(100%, 520px);
+  padding: 30px;
+  border-radius: 30px;
+  background: #faf5ff;
+  box-shadow: 0 25px 65px #170b2855;
+  text-align: center;
+  color: #362148;
+  animation: dateAppear .5s ease;
+}
+
+@keyframes dateAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.date-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font: 700 10px 'DM Sans', sans-serif;
+  letter-spacing: 1.5px;
+  color: #9675af;
+}
+
+.date-flowers {
+  font-size: 30px;
+  margin-top: 24px;
+  letter-spacing: 5px;
+}
+
+.date-small {
+  margin: 18px 0 8px;
+  color: #ad89b8;
+  font: 700 10px 'DM Sans', sans-serif;
+  letter-spacing: 3px;
+}
+
+.date-page h2 {
+  margin: 0;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(40px, 7vw, 55px);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.date-page h2 em {
+  color: #ad7aca;
+}
+
+.date-description {
+  font: 500 13px/1.9 'Mali', sans-serif;
+  color: #826e8c;
+  margin: 17px 0 24px;
+}
+
+/* กล่องปฏิทิน */
+.calendar-card {
+  padding: 18px;
+  border: 1px solid #e6d4ee;
+  border-radius: 22px;
+  background: white;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+  margin: 0;
+  font: 600 16px 'Mali', sans-serif;
+  color: #614281;
+}
+
+.calendar-header button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 12px;
+  background: #f1e6fb;
+  color: #744da0;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.calendar-header button:disabled {
+  opacity: .3;
+  cursor: default;
+}
+
+/* วันจันทร์-อาทิตย์ */
+.weekday-grid,
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.weekday-grid {
+  margin-bottom: 12px;
+}
+
+.weekday-grid span {
+  font: 700 12px 'Mali', sans-serif;
+  color: #ab8ab9;
+  padding: 5px 0;
+}
+
+/* วันที่แต่ละช่อง */
+.day {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 13px;
+  background: transparent;
+  color: #49365a;
+  font: 600 13px 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.day:hover:not(:disabled) {
+  background: #ead8f8;
+  transform: scale(1.06);
+}
+
+.day.today {
+  border: 1px solid #c5a1e5;
+}
+
+.day.selected {
+  background: #7953ac;
+  color: white;
+  box-shadow: 0 4px 12px #7953ac45;
+}
+
+.day:disabled {
+  opacity: .22;
+  cursor: not-allowed;
+}
+
+.picked-date {
+  min-height: 26px;
+  margin: 22px 0 14px;
+  color: #7953a1;
+  font: 600 13px 'Mali', sans-serif;
+}
+
+/* ปุ่มด้านล่าง */
+.date-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.date-actions button {
+  padding: 14px 20px;
+  border-radius: 13px;
+  border: none;
+  cursor: pointer;
+  font: 600 13px 'Mali', sans-serif;
+}
+
+.back-btn {
+  background: #ede1f5;
+  color: #795e91;
+}
+
+.confirm-btn {
+  flex: 1;
+  background: #362148;
+  color: white;
+}
+
+.confirm-btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.date-message {
+  color: #7953a1;
+  font: 600 12px/1.8 'Mali', sans-serif;
+}
+
+.date-footer {
+  margin-top: 20px;
+  color: #ae98b8;
+  font: 11px 'DM Sans', sans-serif;
+}
+
+/* มือถือ */
+@media (max-width: 520px) {
+  .date-page {
+    padding: 22px 15px;
+    border-radius: 24px;
+  }
+
+  .calendar-card {
+    padding: 12px 9px;
+  }
+
+  .days-grid,
+  .weekday-grid {
+    gap: 3px;
+  }
+
+  .day {
+    font-size: 12px;
+    border-radius: 9px;
+  }
+}
+/* 💜 ล็อกปฏิทินเดือนธันวาคม */
+#prevMonth,
+#nextMonth {
+  display: none;
+}
+
+.calendar-header {
+  justify-content: center;
+}
+
+
+/* 💜 MOVIE & RESTAURANT SELECTION */
+
+.choice-section {
+  margin: 25px 0;
+  padding-top: 20px;
+  border-top: 1px dashed #d9c1e7;
+}
+
+.choice-heading h3 {
+  margin: 0;
+  color: #614580;
+  font: 400 25px 'DM Serif Display', Georgia, serif;
+}
+
+.choice-heading p {
+  color: #a08caf;
+  font: 500 12px 'Mali', sans-serif;
+  margin: 7px 0 17px;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* การ์ดที่กดเลือกได้ */
+.choice-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 7px 14px;
+  border: 2px solid #e8d9f0;
+  border-radius: 17px;
+
+  background: white;
+  color: #54376d;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.choice-card:hover {
+  transform: translateY(-3px);
+  border-color: #b18bd5;
+}
+
+.choice-card.selected {
+  border-color: #7953ac;
+  background: #eee0fa;
+  box-shadow: 0 5px 15px #7953ac22;
+}
+
+.choice-card:focus-visible {
+  outline: 3px solid #ab81cf;
+  outline-offset: 3px;
+}
+
+/* พื้นที่รูปภาพ */
+.choice-art {
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background: #e7d7f3;
+}
+
+.choice-art.art-1 {
+  background: #f8deeb;
+}
+
+.choice-art.art-2 {
+  background: #e3d7f4;
+}
+
+.choice-art.art-3 {
+  background: #e0eadc;
+}
+
+.choice-emoji {
+  font-size: 48px;
+  filter: drop-shadow(0 4px 3px #36214822);
+}
+
+/* รองรับรูปโปสเตอร์หนังและรูปร้านจริง */
+.choice-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.choice-name {
+  font: 600 12px/1.6 'Mali', sans-serif;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.choice-desc {
+  color: #a48cb1;
+  font: 10px/1.4 'Mali', sans-serif;
+  text-align: center;
+}
+
+.place-result {
+  white-space: pre-line;
+}
+
+@media (max-width: 520px) {
+  .choice-grid {
+    gap: 7px;
+  }
+
+  .choice-art {
+    height: 94px;
+  }
+
+  .choice-emoji {
+    font-size: 38px;
+  }
+
+  .choice-name {
+    font-size: 10px;
+  }
+
+  .choice-card {
+    padding: 5px 5px 11px;
+  }
+}
+
+/* ===================================
+   💜 PAGE 3 - NEW PURPLE DATE DESIGN
+=================================== */
+
+.place-page {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 850px);
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 48px);
+  overflow: hidden;
+
+  background: #faf6ff;
+  color: #342443;
+
+  border: 1px solid white;
+  border-radius: 34px;
+  box-shadow: 0 28px 75px #180a2a60;
+
+  text-align: center;
+}
+
+/* ดอกไม้ตกแต่งพื้นหลัง */
+
+.place-page::before,
+.place-page::after {
+  content: '✿';
+  position: absolute;
+  z-index: -1;
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.place-page::before {
+  top: 36px;
+  left: -25px;
+  font-size: 145px;
+  color: #cdb5e93d;
+  transform: rotate(-21deg);
+}
+
+.place-page::after {
+  top: 140px;
+  right: -30px;
+  font-size: 180px;
+  color: #efb1d73b;
+  transform: rotate(20deg);
+}
+
+/* หัวกระดาษ */
+
+.place-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  color: #8560a4;
+  font: 700 10px 'DM Sans', Arial, sans-serif;
+  letter-spacing: 1.7px;
+}
+
+.place-decor {
+  margin: 27px 0 8px;
+  font-size: 26px;
+  letter-spacing: 6px;
+}
+
+.place-small {
+  margin: 9px 0 8px;
+  color: #9c78ad;
+  font: 700 10px 'DM Sans', Arial, sans-serif;
+  letter-spacing: 3px;
+}
+
+/* หัวข้อใหญ่ ใช้ฟอนต์ที่เลือก */
+
+.place-page h2 {
+  margin: 0;
+  color: #342443;
+
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(44px, 6.3vw, 67px);
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.07;
+}
+
+.place-page h2 em {
+  color: #a876bd;
+  font-weight: 400;
+}
+
+/* ข้อความใต้หัวข้อ */
+
+.place-description {
+  margin: 16px auto 18px;
+  color: #7e688a;
+  font: 500 13px/1.9 'Mali', sans-serif;
+}
+
+/* ป้ายวันที่ที่เลือก */
+
+.place-page .chosen-day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 100%;
+  padding: 10px 18px;
+  margin: 0 auto 10px;
+
+  border: 1px solid #e2c9ef;
+  border-radius: 999px;
+
+  background: #f0e2fa;
+  color: #704998;
+
+  font: 600 12px/1.6 'Mali', sans-serif;
+}
+
+/* ===================================
+   🎬 MOVIE & RESTAURANT SECTIONS
+=================================== */
+
+.place-page .choice-section {
+  margin: 24px 0 0;
+  padding: 25px clamp(14px, 3vw, 24px);
+
+  border: 1px solid #e9dcf0;
+  border-radius: 24px;
+
+  background: white;
+  text-align: left;
+
+  box-shadow: 0 7px 20px #43245c09;
+}
+
+.place-page .choice-heading {
+  margin-bottom: 19px;
+}
+
+.place-page .choice-heading h3 {
+  margin: 0;
+  color: #422a58;
+
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(24px, 3.3vw, 32px);
+  font-weight: 400;
+}
+
+.place-page .choice-heading p {
+  margin: 4px 0 0;
+  color: #8b7695;
+
+  font: 500 12px/1.7 'Mali', sans-serif;
+}
+
+/* ตารางการ์ด */
+
+.place-page .choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* การ์ดแต่ละตัวเลือก */
+
+.place-page .choice-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 0;
+  gap: 7px;
+  padding: 9px 9px 16px;
+
+  border: 2px solid #eee4f3;
+  border-radius: 18px;
+
+  background: white;
+  color: #422b55;
+
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Mali', sans-serif;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+.place-page .choice-card:hover {
+  transform: translateY(-4px);
+  border-color: #b59bd2;
+  box-shadow: 0 9px 20px #5137681a;
+}
+
+.place-page .choice-card:focus-visible {
+  outline: 3px solid #885db9;
+  outline-offset: 3px;
+}
+
+/* เมื่อเลือกหนังหรือร้าน */
+
+.place-page .choice-card.selected {
+  border-color: #7e57b2;
+  background: #f5edfd;
+  box-shadow: 0 5px 19px #5e388323;
+}
+
+/* หัวใจบนการ์ดที่เลือก */
+
+.place-page .choice-card.selected::after {
+  content: '♥';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+  background: #7e57b2;
+  color: white;
+  font-size: 14px;
+}
+
+/* ===================================
+   🌷 IMAGE AREAS
+=================================== */
+
+.place-page .choice-art {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  height: clamp(110px, 19vw, 175px);
+
+  overflow: hidden;
+  border-radius: 13px;
+}
+
+/* สามสีสลับกัน */
+
+.place-page .choice-art.art-1 {
+  background: linear-gradient(
+    150deg,
+    #f8d9eb,
+    #eac6ea
+  );
+}
+
+.place-page .choice-art.art-2 {
+  background: linear-gradient(
+    150deg,
+    #e9daf9,
+    #c6afe9
+  );
+}
+
+.place-page .choice-art.art-3 {
+  background: linear-gradient(
+    150deg,
+    #e5efdf,
+    #cfdcc8
+  );
+}
+
+/* วงกลมด้านหลังภาพ */
+
+.place-page .choice-art::before {
+  content: '';
+  position: absolute;
+
+  width: 74%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background: #ffffff6b;
+  z-index: -1;
+}
+
+/* ดาวเล็กมุมภาพ */
+
+.place-page .choice-art::after {
+  content: '✦';
+  position: absolute;
+
+  top: 12px;
+  left: 14px;
+
+  color: #7c53a099;
+  font-size: 20px;
+}
+
+/* ไอคอนหนังและอาหาร */
+
+.place-page .choice-emoji {
+  font-size: clamp(46px, 7vw, 76px);
+  line-height: 1;
+  filter: drop-shadow(0 7px 2px #3a20501a);
+}
+
+/* รองรับภาพโปสเตอร์จริง */
+
+.place-page .choice-art img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ชื่อหนังหรือร้าน */
+
+.place-page .choice-name {
+  margin-top: 6px;
+  color: #452e59;
+
+  font: 600 13px/1.5 'Mali', sans-serif;
+  overflow-wrap: anywhere;
+}
+
+/* คำอธิบาย */
+
+.place-page .choice-desc {
+  color: #947fa0;
+  font: 11px/1.4 'DM Sans', sans-serif;
+}
+
+/* ===================================
+   💌 CONFIRMATION AREA
+=================================== */
+
+.place-page .place-picked {
+  margin: 23px 0 14px;
+
+  color: #765196;
+  font: 600 13px/1.8 'Mali', sans-serif;
+
+  text-align: center;
+}
+
+.place-page .place-actions {
+  display: flex;
+  gap: 10px;
+
+  max-width: 410px;
+  margin: 0 auto;
+}
+
+.place-page .place-actions button {
+  min-height: 48px;
+  padding: 12px 18px;
+
+  border: 0;
+  border-radius: 13px;
+
+  cursor: pointer;
+  font: 600 13px 'Mali', sans-serif;
+}
+
+/* กลับ */
+
+.place-page .place-back {
+  background: #ecdef4;
+  color: #705287;
+}
+
+/* ยืนยัน */
+
+.place-page .place-confirm {
+  flex: 1;
+  background: #382246;
+  color: white;
+}
+
+.place-page .place-confirm:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+/* กล่องสรุปเดท */
+
+.place-page .place-result {
+  max-width: 520px;
+  margin: 20px auto 0;
+  padding: 20px;
+
+  border: 1px solid #dfc6ed;
+  border-radius: 17px;
+
+  background: #efe1f8;
+  color: #60427b;
+
+  white-space: pre-line;
+  text-align: center;
+
+  font: 600 13px/1.9 'Mali', sans-serif;
+}
+
+.place-page .place-footer {
+  margin-top: 22px;
+  color: #a998b3;
+  font: 11px 'DM Sans', sans-serif;
+}
+
+/* ===================================
+   📱 MOBILE
+=================================== */
+
+@media (max-width: 650px) {
+
+  .place-page {
+    padding: 23px 14px;
+    border-radius: 23px;
+  }
+
+  .place-top {
+    font-size: 9px;
+    letter-spacing: .8px;
+  }
+
+  .place-decor {
+    margin-top: 23px;
+  }
+
+  .place-page .choice-section {
+    padding: 17px 12px;
+    border-radius: 19px;
+  }
+
+  .place-page .choice-grid {
+    gap: 8px;
+  }
+
+  .place-page .choice-card {
+    padding: 6px 5px 12px;
+    border-radius: 14px;
+  }
+
+  .place-page .choice-art {
+    height: clamp(90px, 23vw, 128px);
+  }
+
+  .place-page .choice-name {
+    font-size: 11px;
+  }
+
+  .place-page .choice-desc {
+    font-size: 10px;
+  }
+
+  .place-page .choice-emoji {
+    font-size: 48px;
+  }
+}
+
+/* =================================
+ 💜 PAGE 4 : DATE CONFIRMED
+================================= */
+
+.success-page {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 550px);
+  margin: 0 auto;
+  padding: 30px;
+
+  background: #faf5ff;
+  border-radius: 30px;
+  border: 1px solid #ffffff;
+
+  color: #362148;
+  text-align: center;
+  box-shadow: 0 25px 70px #170b2855;
+
+  animation: successAppear .6s ease;
+}
+
+@keyframes successAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ดอกไม้พื้นหลัง */
+
+.success-page::before,
+.success-page::after {
+  content: '✿';
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+.success-page::before {
+  top: 90px;
+  left: -35px;
+  color: #d8b9ed55;
+  font-size: 145px;
+  transform: rotate(-25deg);
+}
+
+.success-page::after {
+  right: -34px;
+  bottom: 120px;
+  color: #edbfdd66;
+  font-size: 150px;
+  transform: rotate(23deg);
+}
+
+.success-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ส่วนบน */
+
+.success-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #9775ac;
+
+  font: 700 10px 'DM Sans', sans-serif;
+  letter-spacing: 1.4px;
+}
+
+.success-flowers {
+  margin-top: 25px;
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+
+/* หัวใจ */
+
+.success-heart {
+  width: 76px;
+  height: 76px;
+  margin: 22px auto 15px;
+
+  display: grid;
+  place-items: center;
+
+  background: #eadcf9;
+  border-radius: 50%;
+  color: #8855af;
+
+  font: 55px Georgia, serif;
+
+  animation: heartBeat 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* ข้อความหลัก */
+
+.success-small {
+  color: #a487b5;
+  font: 700 10px 'DM Sans', sans-serif;
+  letter-spacing: 2px;
+}
+
+.success-page h2 {
+  margin: 8px 0;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(48px, 8vw, 68px);
+  color: #362148;
+}
+
+.success-page h2 em {
+  color: #ae78c2;
+}
+
+.success-description {
+  margin: 12px 0 24px;
+  color: #816b8d;
+  font: 500 13px/1.9 'Mali', sans-serif;
+}
+
+/* ============================
+  💌 DATE DETAILS
+============================ */
+
+.success-details {
+  padding: 22px;
+  border: 1px solid #e6d7ef;
+  border-radius: 20px;
+  background: white;
+  text-align: left;
+}
+
+.details-heading {
+  margin: 0 0 20px;
+  color: #a184b3;
+  text-align: center;
+  font: 700 11px 'DM Sans', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px 0;
+  border-top: 1px solid #eee4f3;
+
+  font-family: 'Mali', sans-serif;
+}
+
+.detail-row span {
+  color: #897392;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.detail-row strong {
+  color: #52366b;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* ============================
+ 📸 SCREENSHOT MESSAGE
+============================ */
+
+.screenshot-card {
+  margin-top: 20px;
+  padding: 22px 17px;
+  background: #efe3f9;
+  border-radius: 20px;
+  border: 1px solid #e3cdef;
+}
+
+.camera-icon {
+  font-size: 32px;
+}
+
+.screenshot-card h3 {
+  margin: 10px 0;
+  color: #63427f;
+  font: 400 26px 'DM Serif Display', serif;
+}
+
+.screenshot-card p {
+  margin: 0;
+  color: #775e8b;
+  font: 500 12px/2 'Mali', sans-serif;
+}
+
+.screenshot-flower {
+  margin-top: 13px;
+  font-size: 22px;
+}
+
+/* ปุ่มย้อนกลับ */
+
+.success-back {
+  margin-top: 22px;
+  padding: 13px 22px;
+  background: #e9daf3;
+  color: #704c8e;
+  border: none;
+  border-radius: 13px;
+
+  cursor: pointer;
+  font: 600 12px 'Mali', sans-serif;
+}
+
+.success-back:hover {
+  background: #dbc3ed;
+}
+
+.success-footer {
+  margin-top: 18px;
+  color: #ad93b8;
+  font: 12px 'DM Sans', sans-serif;
+}
+
+/* มือถือ */
+
+@media (max-width: 520px) {
+
+  .success-page {
+    padding: 24px 16px;
+    border-radius: 24px;
+  }
+
+  .success-top {
+    font-size: 9px;
+  }
+
+  .success-details {
+    padding: 15px;
+  }
+
+  .detail-row {
+    align-items: flex-start;
+  }
+
+  .detail-row strong {
+    font-size: 11px;
+  }
+
+  .screenshot-card {
+    padding: 18px 12px;
+  }
+
+}
+
+/* 🎬 รูปโปสเตอร์หนัง */
+#movieGrid .choice-art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  background: #eee4f5;
+}
+
+#movieGrid .choice-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 🍽️ รูปร้านอาหาร */
+#restaurantGrid .choice-art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+
+#restaurantGrid .choice-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 💜 เพิ่มความกว้างการ์ด */
+.place-page .choice-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* 💜 ปรับกรอบรูปร้านอาหารทั้ง 3 ร้าน */
+
+#restaurantGrid .choice-art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+/* 🌆 Baiyoke Buffet */
+#restaurantGrid .choice-card:nth-child(1) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 🍣 Sushiro */
+#restaurantGrid .choice-card:nth-child(2) .choice-art {
+  background: #ffffff;
+}
+
+#restaurantGrid .choice-card:nth-child(2) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 🎀 Sanrio Sweet CAFÉ */
+#restaurantGrid .choice-card:nth-child(3) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ปรับขนาดบนมือถือ */
+@media (max-width: 520px) {
+  #restaurantGrid .choice-art {
+    aspect-ratio: 4 / 3;
+  }
+}
