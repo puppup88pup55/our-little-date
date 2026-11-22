@@ -598,84 +598,78 @@ editDatePlan.addEventListener('click', () => {
 });
 
 
-/* ==================================
-   💜 OUR LITTLE DATE MUSIC
-   ================================== */
+/* 💜 OUR LITTLE DATE - MUSIC */
 
-const dateMusic = document.getElementById("dateMusic");
-const dateMusicToggle = document.getElementById("dateMusicToggle");
-const yesForMusic = document.querySelector(".btn.yes");
+function setupDateMusic() {
+  const music = document.getElementById("dateMusic");
+  const toggle = document.getElementById("dateMusicToggle");
+  const yes = document.querySelector(".btn.yes");
 
-// วินาทีเริ่มเพลง (30 คือค่าทดลอง)
-const START_AT = 30;
+  if (!music || !toggle || !yes) {
+    console.error("Music elements not found");
+    return;
+  }
 
-if (dateMusic && dateMusicToggle && yesForMusic) {
+  music.volume = 0.5;
+  music.loop = true;
 
-  // ระดับเสียง 35%
-  dateMusic.volume = 0.35;
+  const START_AT = 30;
+  let firstPlay = true;
 
-  let musicStarted = false;
+  function playMusic() {
+    if (firstPlay) {
+      firstPlay = false;
 
-  function playDateMusic() {
-
-    if (!musicStarted) {
-      musicStarted = true;
-
-      const setStartTime = () => {
-        if (
-          Number.isFinite(dateMusic.duration) &&
-          START_AT < dateMusic.duration
-        ) {
-          dateMusic.currentTime = START_AT;
+      function jumpToStart() {
+        if (music.duration > START_AT) {
+          music.currentTime = START_AT;
         }
-      };
+      }
 
-      if (dateMusic.readyState >= 1) {
-        setStartTime();
+      if (music.readyState >= 1) {
+        jumpToStart();
       } else {
-        dateMusic.addEventListener(
+        music.addEventListener(
           "loadedmetadata",
-          setStartTime,
+          jumpToStart,
           { once: true }
         );
       }
     }
 
-    dateMusic.play().catch(error => {
-      console.error("Music error:", error);
+    music.play().catch(error => {
+      console.error("Music play failed:", error);
+      toggle.textContent = "🎵 เปิดเพลง";
     });
   }
 
-  // 🎵 กด "ไปเดทกัน" แล้วเริ่มเพลง
-  yesForMusic.addEventListener("click", () => {
-    playDateMusic();
-  });
+  // กดไปเดทกัน = เพลงเริ่ม
+  yes.addEventListener("click", playMusic);
 
-  // 💜 ปุ่มเปิด / ปิดเพลง
-  dateMusicToggle.addEventListener("click", () => {
-
-    if (dateMusic.paused) {
-      playDateMusic();
+  // ปุ่มเปิด / ปิดเพลง
+  toggle.addEventListener("click", () => {
+    if (music.paused) {
+      playMusic();
     } else {
-      dateMusic.pause();
+      music.pause();
     }
-
   });
 
-  // เปลี่ยนไอคอนเมื่อเพลงเล่น
-  dateMusic.addEventListener("play", () => {
-    dateMusicToggle.textContent = "🔊";
-    dateMusicToggle.setAttribute(
-      "aria-label", "ปิดเพลง"
-    );
+  music.addEventListener("play", () => {
+    toggle.textContent = "🔊 ปิดเพลง";
   });
 
-  // เปลี่ยนไอคอนเมื่อหยุดเพลง
-  dateMusic.addEventListener("pause", () => {
-    dateMusicToggle.textContent = "🎵";
-    dateMusicToggle.setAttribute(
-      "aria-label", "เปิดเพลง"
-    );
+  music.addEventListener("pause", () => {
+    toggle.textContent = "🎵 เปิดเพลง";
   });
 
+  music.addEventListener("error", () => {
+    console.error("Audio loading error:", music.error);
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", setupDateMusic);
+} else {
+  setupDateMusic();
 }
