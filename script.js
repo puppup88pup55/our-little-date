@@ -608,8 +608,12 @@ const musicButton = document.getElementById('musicButton');
 bgMusic.volume = 0.35;
 
 // เล่นเพลงเมื่อกด YES
+
 yesButton.addEventListener('click', () => {
-  bgMusic.play().catch(() => {
+  bgMusic.currentTime = 30; // เปลี่ยนเป็นวินาทีที่ท่อนฮุกเริ่ม
+  bgMusic.play().catch(console.error);
+});
+
     // ถ้าเบราว์เซอร์บล็อก ให้กดปุ่มเพลงเอง
   });
 });
