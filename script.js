@@ -640,18 +640,6 @@ bgMusic.addEventListener('pause', () => {
   musicButton.setAttribute('aria-label', 'เปิดเพลง');
 });
 
-// ======================================
-// 💜 LANY - YOU! MUSIC
-// ======================================
-
-const spotifyPlayer =
-  document.getElementById("spotifyPlayer");
-
-const dateYesButton =
-  document.querySelector(".btn.yes");
-
-let spotifyController = null;
-let wantsMusic = false;
 
 
 // 💜 OUR DATE MUSIC
