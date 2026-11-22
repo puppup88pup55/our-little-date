@@ -1688,3 +1688,31 @@ h1 em {
     aspect-ratio: 4 / 3;
   }
 }
+
+/* 🎶 Purple Music Button */
+
+#musicButton {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10000;
+
+  width: 55px;
+  height: 55px;
+
+  border: 2px solid #f4dcff;
+  border-radius: 50%;
+
+  background: #694aa3;
+  color: white;
+  font-size: 24px;
+
+  cursor: pointer;
+  box-shadow: 0 5px 20px #2b193c55;
+
+  transition: transform .25s ease;
+}
+
+#musicButton:hover {
+  transform: scale(1.12);
+}
