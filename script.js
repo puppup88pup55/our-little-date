@@ -596,3 +596,44 @@ editDatePlan.addEventListener('click', () => {
   window.scrollTo(0, 0);
 
 });
+
+// ==================================
+// 💜 BACKGROUND MUSIC
+// ==================================
+
+const bgMusic = document.getElementById('bgMusic');
+const musicButton = document.getElementById('musicButton');
+
+// ระดับเสียง 35%
+bgMusic.volume = 0.35;
+
+// เล่นเพลงเมื่อกด YES
+yesButton.addEventListener('click', () => {
+  bgMusic.play().catch(() => {
+    // ถ้าเบราว์เซอร์บล็อก ให้กดปุ่มเพลงเอง
+  });
+});
+
+// เปิด / ปิดเพลง
+musicButton.addEventListener('click', () => {
+
+  if (bgMusic.paused) {
+    bgMusic.play().catch(() => {
+      musicButton.textContent = '🎵';
+    });
+  } else {
+    bgMusic.pause();
+  }
+
+});
+
+// เปลี่ยนไอคอนตามสถานะจริง
+bgMusic.addEventListener('play', () => {
+  musicButton.textContent = '🔊';
+  musicButton.setAttribute('aria-label', 'ปิดเพลง');
+});
+
+bgMusic.addEventListener('pause', () => {
+  musicButton.textContent = '🎵';
+  musicButton.setAttribute('aria-label', 'เปิดเพลง');
+});
