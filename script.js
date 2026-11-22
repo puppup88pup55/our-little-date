@@ -653,39 +653,52 @@ const dateYesButton =
 let spotifyController = null;
 let wantsMusic = false;
 
-// เตรียม Spotify Player
-window.onSpotifyIframeApiReady = (IFrameAPI) => {
-  IFrameAPI.createController(
-    spotifyPlayer,
-    {
-      width: "100%",
-      height: "80",
-      uri: "spotify:track:7H7ZHbscGyGV5VUCY7hG1u"
-    },
-    (controller) => {
-      spotifyController = controller;
 
-      if (wantsMusic) {
-        // อาจถูกเบราว์เซอร์บล็อก
-        spotifyController.play();
-      }
+// 💜 OUR DATE MUSIC
+
+const dateMusic = document.getElementById("dateMusic");
+const dateMusicToggle =
+  document.getElementById("dateMusicToggle");
+
+const START_AT = 30; // เวลาเริ่มเพลง (วินาที) ตัวอย่าง
+
+let musicStarted = false;
+
+function playDateMusic() {
+  if (!musicStarted) {
+    musicStarted = true;
+
+    if (dateMusic.readyState >= 1) {
+      dateMusic.currentTime = START_AT;
+    } else {
+      dateMusic.addEventListener("loadedmetadata", () => {
+        if (START_AT < dateMusic.duration) {
+          dateMusic.currentTime = START_AT;
+        }
+      }, { once: true });
     }
-  );
-};
-
-// โหลด Spotify API
-const spotifyScript = document.createElement("script");
-spotifyScript.src =
-  "https://open.spotify.com/embed/iframe-api/v1";
-spotifyScript.async = true;
-document.head.appendChild(spotifyScript);
-
-// เริ่มเพลงเมื่อกด YES
-dateYesButton.addEventListener("click", () => {
-  wantsMusic = true;
-  spotifyPlayer.classList.add("shown");
-
-  if (spotifyController) {
-    spotifyController.play();
   }
+
+  dateMusic.play().catch(console.error);
+}
+
+// เริ่มเพลงเมื่อกด "ไปเดทกัน"
+document.querySelector(".btn.yes")
+  .addEventListener("click", playDateMusic);
+
+// ปุ่มเปิด / ปิดเพลง
+dateMusicToggle.addEventListener("click", () => {
+  if (dateMusic.paused) {
+    playDateMusic();
+  } else {
+    dateMusic.pause();
+  }
+});
+
+dateMusic.addEventListener("play", () => {
+  dateMusicToggle.textContent = "🔊 ปิดเพลง";
+});
+
+dateMusic.addEventListener("pause", () => {
+  dateMusicToggle.textContent = "🎵 เปิดเพลง";
 });
