@@ -597,96 +597,85 @@ editDatePlan.addEventListener('click', () => {
 
 });
 
-// ==================================
-// 💜 BACKGROUND MUSIC
-// ==================================
 
-const bgMusic = document.getElementById('bgMusic');
-const musicButton = document.getElementById('musicButton');
-
-// ระดับเสียง 35%
-bgMusic.volume = 0.35;
-
-// เล่นเพลงเมื่อกด YES
-
-yesButton.addEventListener('click', () => {
-  bgMusic.currentTime = 30; // เปลี่ยนเป็นวินาทีที่ท่อนฮุกเริ่ม
-  bgMusic.play().catch(console.error);
-});
-
-
-
-// เปิด / ปิดเพลง
-musicButton.addEventListener('click', () => {
-
-  if (bgMusic.paused) {
-    bgMusic.play().catch(() => {
-      musicButton.textContent = '🎵';
-    });
-  } else {
-    bgMusic.pause();
-  }
-
-});
-
-// เปลี่ยนไอคอนตามสถานะจริง
-bgMusic.addEventListener('play', () => {
-  musicButton.textContent = '🔊';
-  musicButton.setAttribute('aria-label', 'ปิดเพลง');
-});
-
-bgMusic.addEventListener('pause', () => {
-  musicButton.textContent = '🎵';
-  musicButton.setAttribute('aria-label', 'เปิดเพลง');
-});
-
-
-
-// 💜 OUR DATE MUSIC
+/* ==================================
+   💜 OUR LITTLE DATE MUSIC
+   ================================== */
 
 const dateMusic = document.getElementById("dateMusic");
-const dateMusicToggle =
-  document.getElementById("dateMusicToggle");
+const dateMusicToggle = document.getElementById("dateMusicToggle");
+const yesForMusic = document.querySelector(".btn.yes");
 
-const START_AT = 30; // เวลาเริ่มเพลง (วินาที) ตัวอย่าง
+// วินาทีเริ่มเพลง (30 คือค่าทดลอง)
+const START_AT = 30;
 
-let musicStarted = false;
+if (dateMusic && dateMusicToggle && yesForMusic) {
 
-function playDateMusic() {
-  if (!musicStarted) {
-    musicStarted = true;
+  // ระดับเสียง 35%
+  dateMusic.volume = 0.35;
 
-    if (dateMusic.readyState >= 1) {
-      dateMusic.currentTime = START_AT;
-    } else {
-      dateMusic.addEventListener("loadedmetadata", () => {
-        if (START_AT < dateMusic.duration) {
+  let musicStarted = false;
+
+  function playDateMusic() {
+
+    if (!musicStarted) {
+      musicStarted = true;
+
+      const setStartTime = () => {
+        if (
+          Number.isFinite(dateMusic.duration) &&
+          START_AT < dateMusic.duration
+        ) {
           dateMusic.currentTime = START_AT;
         }
-      }, { once: true });
+      };
+
+      if (dateMusic.readyState >= 1) {
+        setStartTime();
+      } else {
+        dateMusic.addEventListener(
+          "loadedmetadata",
+          setStartTime,
+          { once: true }
+        );
+      }
     }
+
+    dateMusic.play().catch(error => {
+      console.error("Music error:", error);
+    });
   }
 
-  dateMusic.play().catch(console.error);
-}
-
-// เริ่มเพลงเมื่อกด "ไปเดทกัน"
-document.querySelector(".btn.yes")
-  .addEventListener("click", playDateMusic);
-
-// ปุ่มเปิด / ปิดเพลง
-dateMusicToggle.addEventListener("click", () => {
-  if (dateMusic.paused) {
+  // 🎵 กด "ไปเดทกัน" แล้วเริ่มเพลง
+  yesForMusic.addEventListener("click", () => {
     playDateMusic();
-  } else {
-    dateMusic.pause();
-  }
-});
+  });
 
-dateMusic.addEventListener("play", () => {
-  dateMusicToggle.textContent = "🔊 ปิดเพลง";
-});
+  // 💜 ปุ่มเปิด / ปิดเพลง
+  dateMusicToggle.addEventListener("click", () => {
 
-dateMusic.addEventListener("pause", () => {
-  dateMusicToggle.textContent = "🎵 เปิดเพลง";
-});
+    if (dateMusic.paused) {
+      playDateMusic();
+    } else {
+      dateMusic.pause();
+    }
+
+  });
+
+  // เปลี่ยนไอคอนเมื่อเพลงเล่น
+  dateMusic.addEventListener("play", () => {
+    dateMusicToggle.textContent = "🔊";
+    dateMusicToggle.setAttribute(
+      "aria-label", "ปิดเพลง"
+    );
+  });
+
+  // เปลี่ยนไอคอนเมื่อหยุดเพลง
+  dateMusic.addEventListener("pause", () => {
+    dateMusicToggle.textContent = "🎵";
+    dateMusicToggle.setAttribute(
+      "aria-label", "เปิดเพลง"
+    );
+  });
+
+}
