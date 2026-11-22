@@ -610,7 +610,7 @@ function setupDateMusic() {
     return;
   }
 
-  music.volume = 0.5;
+  music.volume = 0.2;
   music.loop = true;
 
   const START_AT = 30;
