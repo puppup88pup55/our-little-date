@@ -16,7 +16,7 @@ let noClicks = 0;
 let dodgeCount = 0;
 let lastDodge = 0;
 
-const maxClicks = 5;
+const maxClicks = 5; 
 
 
 // 💜 กด YES
