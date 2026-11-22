@@ -613,7 +613,7 @@ function setupDateMusic() {
   music.volume = 0.2;
   music.loop = true;
 
-  const START_AT = 30;
+  const START_AT = 35;
   let firstPlay = true;
 
   function playMusic() {
